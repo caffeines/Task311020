@@ -8,10 +8,14 @@ const ApplicationSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: true,
+    index: true,
+    unique: true,
   },
   email: {
     type: String,
     required: true,
+    index: true,
+    unique: true,
   },
 });
 
