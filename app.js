@@ -17,6 +17,7 @@ app.use(cors());
 mongoose.connectMongoDB();
 
 const port = Number(process.env.PORT) || config.server.port;
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}...`);
 });
