@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  database:
+    image: 'mongo'
+    container_name: 'rec_task_mongo'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: caffeines
+      MONGO_INITDB_ROOT_PASSWORD: pass2ord
+      MONGO_INITDB_DATABASE: application
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017-27019:27017-27019'

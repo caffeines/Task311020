@@ -1,0 +1,19 @@
+{
+  "name": "recruitment_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app"
+  },
+  "author": "caffeines <sadat.talks@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "mongoose": "^5.10.11"
+  }
+}
