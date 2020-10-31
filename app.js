@@ -15,7 +15,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(response);
-
+app.use(express.static('public'));
 mongoose.connectMongoDB();
 
 const port = Number(process.env.PORT) || config.server.port;

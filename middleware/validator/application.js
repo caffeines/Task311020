@@ -1,6 +1,8 @@
 const joi = require('joi');
 
 const createApplication = (req, res, next) => {
+  console.log(req.body);
+
   const schema = joi.object().keys({
     email: joi.string().trim().email().required(),
     name: joi.string().trim().required(),
