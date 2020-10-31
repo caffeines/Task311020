@@ -20,10 +20,7 @@ services:
     volumes:
         - ./client:/usr/share/nginx/html
   web:
-    build:
-        context: .
-        dockerfile: Dockerfile
-    image: application
+    image: caffeines/application:rc
     container_name: application
     restart: always
     env_file: .env
