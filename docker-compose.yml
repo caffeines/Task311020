@@ -13,3 +13,25 @@ services:
       - ./mongo-volume:/data/db
     ports:
       - '27017-27019:27017-27019'
+  client:
+    image: nginx
+    ports:
+        - 3000:80
+    volumes:
+        - ./client:/usr/share/nginx/html
+  web:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    image: application
+    container_name: application
+    restart: always
+    env_file: .env
+    ports:
+        - 4000:4782
+    volumes:
+        - .:/home/application/app
+        - /home/application/app/node_modules
+    command: node app.js
+    depends_on:
+        - database

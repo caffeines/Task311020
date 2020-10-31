@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+</head>
+<body>
+  <div id="app">
+    <div v-if="page==2 && createdApp==true"
+    class="message">Applicataion Created</div>
+    <div class="main">
+      <div class="card" v-if="page==1" @click="page=2">
+        Submit Application
+      </div>
+      <div class="card" v-if="page==1 && !token" @click="page=3">
+        Login
+      </div>
+      <div class="card" v-if="page==1 && token" @click="getApplications()">
+        Show Application
+      </div>
+      <div class="form" v-if="page==2">
+        <input type="text" placeholder="Name"
+        v-model="name"><br>
+        <input type="email" placeholder="Email"
+        v-model="email"><br>
+        <input type="number" placeholder="Phone"
+        v-model="phone"><br><br>
+        <button @click="createApplication()"> Submit</button>
+        <button @click="homePage()"> Cancel</button>
+      </div>
+      <div class="form" v-if="page==3">
+        <input type="email" placeholder="Email"
+        v-model="email"><br>
+        <input type="password" placeholder="Password"
+        v-model="password"><br><br>
+        <button @click="login()"> Login</button>
+        <button @click="homePage()"> Cancel</button>
+      </div>
+      <div v-if="page==5">
+        <div class="head">
+          <div>Applications</div>
+          <button @click="page=1">Back</button>
+        </div>
+        <table v-if="applications.length > 0">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+          <tr v-for="app in applications" :key="app._id">
+            <td>{{app.name}}</td>
+            <td>{{app.email}}</td>
+            <td>{{app.phone}}</td>
+          </tr>
+        </table>        
+      </div>
+    </div>
+  </div>
+</body>
+<script src="index.js"></script>
+</html>
