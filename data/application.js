@@ -8,4 +8,5 @@ module.exports = {
    * @returns {Promise} - a Promise, resolving to the application value in the database.
    */
   create: async (application) => applicationImpl.create(application),
+  getApplications: async (page, limit) => applicationImpl.getApplications(page, limit),
 };

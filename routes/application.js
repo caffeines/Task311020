@@ -7,5 +7,10 @@ router.post(
   // isLoggedIn,
   application.createApplication,
 );
+router.get(
+  '/',
+  // isLoggedIn,
+  application.getApplications,
+);
 
 module.exports = router;
