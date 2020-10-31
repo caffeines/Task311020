@@ -1,5 +1,5 @@
 const applicationRoutes = require('./application');
-const authRoutes = require('./user');
+const authRoutes = require('./auth');
 
 const bindRoutes = (app) => {
   app.get('/', (req, res) => {
