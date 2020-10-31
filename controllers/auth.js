@@ -2,6 +2,7 @@
 const bcrypt = require('bcrypt');
 const User = require('../data/user');
 const utils = require('../lib/utils');
+const jwt = require('../lib/jwt');
 
 const SALT_ROUND = 10;
 
@@ -34,14 +35,18 @@ module.exports = {
         return;
       }
       const isValidPassword = await bcrypt.compare(password, user.password);
-      console.log('isValidPassword: ', isValidPassword);
       if (isValidPassword) {
-        // const jwtToken = await createToken(user);
-        res.ok(user);
+        const jwtToken = await jwt.generateToken(user);
+        res.ok({
+          name: user.name,
+          email: user.email,
+          token: jwtToken,
+        });
       } else {
         res.unauthorized({ message: 'Password incorrect' });
       }
     } catch (err) {
+      console.log(err);
       res.serverError(err);
     }
   },
