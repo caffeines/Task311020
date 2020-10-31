@@ -7,3 +7,9 @@ router.post(
   '/register',
   auth.createUser,
 );
+router.post(
+  '/login',
+  auth.login,
+);
+
+module.exports = router;
