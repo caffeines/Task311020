@@ -25,7 +25,7 @@ services:
     restart: always
     env_file: .env
     ports:
-        - 4000:4782
+        - 4782:4782
     volumes:
         - .:/home/application/app
         - /home/application/app/node_modules

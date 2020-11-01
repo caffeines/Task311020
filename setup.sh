@@ -19,7 +19,7 @@ curl -s -d '{ "name": "guest", "email": "guest@gmail.com", "password": "guest" }
 echo ""
 echo ""
 
-echo "Server: http://localhost:4000"
+echo "Server: http://localhost:4782"
 echo "Client: http://localhost:3000"
 
 echo ""
