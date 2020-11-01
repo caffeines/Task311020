@@ -7,14 +7,14 @@ docker-compose up -d
 echo "Health check"
 sleep 3
 echo ""
-curl -s localhost:4000 | json_pp
+curl -s localhost:4782 | json_pp
 echo ""
 echo ""
 
 echo "Creating guest user"
 
 curl -s -d '{ "name": "guest", "email": "guest@gmail.com", "password": "guest" }'\
- -H "Content-Type: application/json" -X POST http://localhost:4000/api/auth/register | json_pp
+ -H "Content-Type: application/json" -X POST http://localhost:4782/api/auth/register | json_pp
 
 echo ""
 echo ""

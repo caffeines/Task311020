@@ -20,7 +20,7 @@ services:
     volumes:
         - ./client:/usr/share/nginx/html
   web:
-    image: caffeines/application:rc
+    image: caffeines/application:v0.1
     container_name: application
     restart: always
     env_file: .env
